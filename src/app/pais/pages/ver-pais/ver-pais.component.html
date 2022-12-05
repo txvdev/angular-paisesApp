@@ -6,13 +6,13 @@
 <ng-template #divPais>
   <div class="row">
     <div class="col-12">
-      <h1>País: <small>{{ pais.name }}</small></h1>
+      <h1>País: <small>{{ pais.name.common }}</small></h1>
     </div>
   </div>
   <div class="row">
     <div class="col-4">
       <h3>Bandera</h3>
-      <img [src]="pais.flag" class="img-thumbnail"/>
+      <img [src]="pais.flags.svg" class="img-thumbnail"/>
     </div>
     <div class="col">
       <h3>Información</h3>
@@ -21,21 +21,21 @@
           <strong>Población </strong>{{ pais.population | number }}
         </li>
         <li class="list-group-item">
-          <strong>Código numérico </strong>{{ pais.numericCode }}
+          <strong>Código numérico </strong>{{ pais.cca2 }}
         </li>
         <li class="list-group-item">
-          <strong>Código alpha3 </strong>{{ pais.alpha3Code }}
+          <strong>Código alpha3 </strong>{{ pais.cca3 }}
         </li>
       </ul>
     </div>
   </div>
 
   <h3>Traducciones</h3>
-  <div class="row">
+  <!-- <div class="row">
     <div class="col">
-      <span class="badge bg-primary me-2">{{ pais.translations.es }}</span>
-      <span class="badge bg-primary me-2">{{ pais.translations.fr }}</span>
-      <span class="badge bg-primary me-2">{{ pais.translations.de }}</span>
+      <span class="badge bg-primary me-2">{{ pais.translations.ara.official }}</span>
+      <span class="badge bg-primary me-2">{{ pais.translations.deu.official }}</span>
+      <span class="badge bg-primary me-2">{{ pais.translations.deu.official }}</span>
       <span class="badge bg-primary me-2">{{ pais.translations.ja }}</span>
       <span class="badge bg-primary me-2">{{ pais.translations.it }}</span>
       <span class="badge bg-primary me-2">{{ pais.translations.br }}</span>
@@ -43,7 +43,7 @@
       <span class="badge bg-primary me-2">{{ pais.translations.fa }}</span>
       <span class="badge bg-primary me-2">{{ pais.translations.nl }}</span>
     </div>
-  </div>
+  </div> -->
 
   <pre class="mt-5">
     {{ pais | json }}

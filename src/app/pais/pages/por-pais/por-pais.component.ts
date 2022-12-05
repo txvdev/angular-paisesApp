@@ -13,6 +13,9 @@ export class PorPaisComponent implements OnInit {
   hayError: boolean = false;
   paises: Country[] = [];
 
+  paisesSugeridos: Country[] = [];
+  mostrarSugerencias: boolean = false;
+
   constructor( private PaisService: PaisService ) { }
 
   ngOnInit(): void {
@@ -51,8 +54,24 @@ export class PorPaisComponent implements OnInit {
 
   sugerencias( termino: string ) {
     this.hayError = false;
-    //TODO
-    //Crear sugerencias
+    this.termino = termino;
+    this.mostrarSugerencias = true;
+
+    this.PaisService.buscarPais( termino )
+      .subscribe({
+        next: (paises) => this.paisesSugeridos = paises.splice(0, 3),
+        error: () => this.paisesSugeridos = []
+      }
+
+
+        // paises => this.paisesSugeridos = paises.splice(0,3),
+        // (err) => this.paisesSugeridos = []
+        );
+  }
+
+  buscarSugerido( termino:string ){
+    this.buscar( termino );
+    // this.mostrarSugerencias = false;
   }
 
 }
